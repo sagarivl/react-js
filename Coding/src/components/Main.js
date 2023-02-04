@@ -4,8 +4,14 @@ import { Link } from "react-router-dom";
 import useAllResturant from "../utils/useAllResturant";
 
 const Main = () => {
-  const { filterList, allList, searchtext, setFilterList, setSearchText } =
-    useAllResturant();
+  const {
+    filterList,
+    allList,
+    searchtext,
+    setFilterList,
+    setSearchText,
+    setAllList,
+  } = useAllResturant();
 
   const handleChange = (e) => {
     setSearchText(e.target.value);
@@ -20,6 +26,8 @@ const Main = () => {
     });
 
     setFilterList(filter);
+    // setAllList(filter);
+    console.log(filterList);
   };
 
   return allList?.length === 0 ? (
@@ -44,6 +52,7 @@ const Main = () => {
       <div className="resturant-list">
         {filterList &&
           filterList.map((list) => {
+            console.log(filterList);
             return (
               <Link to={"/restuarant/" + list.data?.id} key={list.data?.id}>
                 <ResturantCard cardList={list} />

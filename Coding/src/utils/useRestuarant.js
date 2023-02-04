@@ -7,6 +7,7 @@ const useRestuarant = (id) => {
     getResturantInfo();
   }, []);
   async function getResturantInfo() {
+    console.log(id);
     const response = await fetch(RESTUARANT_URL + id);
     const dataRes = await response.json();
     console.log("----", dataRes.data);

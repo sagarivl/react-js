@@ -1,6 +1,7 @@
 import { CDN_URL } from "./constants";
 
 const ResturantCard = (props) => {
+  //console.log(props);
   const { name, cloudinaryImageId, cuisines, lastMileTravelString } =
     props.cardList.data;
   return (
@@ -9,7 +10,7 @@ const ResturantCard = (props) => {
         <img src={CDN_URL + cloudinaryImageId} />
         <h4>{name}</h4>
         <div>{cuisines.join(" , ")}</div>
-        <div>{lastMileTravelString} minutes</div>
+        <div>{lastMileTravelString} </div>
       </div>
     </>
   );

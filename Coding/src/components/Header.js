@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import useOnline from "../utils/useOnline";
+import { useSelector, useDispatch } from "react-redux";
 
 export const Title = () => {
   return (
@@ -18,6 +19,7 @@ export const Title = () => {
 
 const Header = () => {
   const online = useOnline();
+  const store = useSelector((state) => state.cart.items);
   return (
     <>
       <div className="header">
@@ -36,7 +38,10 @@ const Header = () => {
             <li>
               <Link to="/instamart">InstaMart</Link>
             </li>
-            <li>Cart</li>
+            <li>
+              {" "}
+              <Link to="/cart">Cart--{store.length}</Link>
+            </li>
           </ul>
           <h2>{online ? "online" : "offline"}</h2>
         </div>

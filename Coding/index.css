@@ -50,3 +50,6 @@
 .menu {
   display: flex;
 }
+.cart-view {
+  display: flex;
+}
